@@ -1,0 +1,135 @@
+@use '../base/global';
+@use '../base/colors' as colors;
+@use '../base/mixins' as mixin;
+@use '../base/variables' as var;
+
+/****Services Page****/
+.mainServices{
+    .application{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 0;
+        margin-bottom: 2em;
+        @include mixin.little{
+            flex-direction: column;
+        }
+        .download{
+            width: 30%;
+            @include mixin.medium{
+                width: 40%;
+            } 
+            @include mixin.little{
+                width: 100%
+            }
+            &__title{
+                @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+                text-transform: uppercase;
+                margin-bottom: 0.5em;    
+            }
+            &__text{
+                @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+                @include mixin.little{
+                    margin-bottom: 1.5em;
+                }
+            }
+        }
+        .mobile{
+            width: 55%;
+            background-color: colors.$color1;
+            display: flex;
+            align-items: center;
+            padding: 1.3em;
+            gap: 2em;
+            @include mixin.little{
+                width: 100%
+            }
+            &__icon{
+                font-size: 4rem;
+                color: colors.$color3;
+                @include mixin.medium{
+                    display: none;
+                } 
+            }
+            &__title{
+                @include mixin.title(var.$tipografia1, 1.3rem, colors.$color3);
+            }
+            &__text{
+                @include mixin.text(var.$tipografia2, 1rem, colors.$color3, justify);                   
+            }
+        }
+    }
+    .movie{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+        &__video{
+            min-width:350px;
+        }
+    }
+    .services{
+        margin-bottom: 2em;
+        &__title{
+            @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+        }
+        .cards{
+            display: flex;
+            gap: 2em;
+            flex-wrap: wrap;
+            &__card{
+                width: 23%;
+                justify-content: space-between;
+                @include mixin.medium{
+                    width: 47%;
+                }
+                @include mixin.little{
+                    width: 100%;
+                }     
+            }
+            &__icon{
+                color: colors.$color1;
+                font-size: 2rem;
+                margin-bottom: 0.5em;
+            }
+            &__title{
+                @include mixin.title(var.$tipografia1, 1.1rem, colors.$color2);
+                margin-bottom: 0.5em;
+            }
+            &__text{
+                @include mixin.text(var.$tipografia2, 1rem, colors.$color5, justify);              
+            }
+        }
+    }
+    .additionalServices{
+        margin-bottom: 2em;
+        .service{
+            display: flex;
+            align-items: center;
+            @include mixin.medium{
+                flex-direction: column;
+                margin-bottom: 1em;
+            }
+            &__image{
+                width: 50%;
+                @include mixin.medium{
+                    order: 2;
+                    width: 100%;
+                }
+            }
+            &__content{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                @include mixin.medium{
+                    justify-content: flex-start;
+                    order: 1;
+                    width: 100%;
+                }
+            }
+            &__title{
+                @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+                text-transform: uppercase;
+            }
+        }
+    }
+}

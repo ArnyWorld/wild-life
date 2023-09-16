@@ -1,0 +1,47 @@
+@use './mixins' as mixin;
+@use './colors' as colors;
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration: none;
+    list-style: none;
+}
+html{
+    position: relative;
+    font-size: 18px;
+
+    @include mixin.medium{
+        font-size:16px;
+    }
+    @include mixin.little{
+        font-size:14px;
+    }
+    .container{
+        width: 85%;
+        margin: 0 auto;
+        @include mixin.medium{
+            width: 90%;
+        }
+        @include mixin.little{
+            width: 95%;
+        }
+    }
+
+    .goTop{
+        font-size: 3rem;
+        color: colors.$color6;
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        z-index: 100;
+        cursor: pointer;
+        display: none;
+        
+    }
+}
+
+body{
+    overflow-x: hidden;
+}

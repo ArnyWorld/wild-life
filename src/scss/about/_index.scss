@@ -1,0 +1,165 @@
+@use '../base/global';
+@use '../base/colors' as colors;
+@use '../base/mixins' as mixin;
+@use '../base/variables' as var;
+
+/****About Page****/
+.mainAbout{
+    padding: 2em 0;
+
+    .objetives{
+        margin-bottom: 2em;
+        .objetive{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2em;
+            &__image{
+                width: 45%;
+                @include mixin.medium{
+                    display: none;
+                }
+            }
+            &__content{
+                cursor: pointer;
+                width: 45%;
+                transition: transform .5s ease;
+                @include mixin.medium{
+                    width: 100%;
+                }
+                &:hover{
+                    transform: scale(1.1);
+                    @include mixin.medium{
+                        transform: scale(1.05);
+                    }
+                    @include mixin.little{
+                        transform: scale(1);
+                    }
+                }
+            }
+            &__title{
+                @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+                text-transform: uppercase;
+            }
+            &__text{
+                @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+            }
+        }
+    }
+
+    .ourTeam{
+        margin-bottom: 2em;
+        &__title{
+            @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+                text-transform: uppercase;
+        }
+        .teams{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            .team{
+                width: 23%;
+                @include mixin.medium{
+                    width: 47%;
+                    margin-bottom: 1em;
+                }
+                @include mixin.little{
+                    width: 100%;
+                }
+                &__image{
+                    width: 100%;
+                }
+                &__name{
+                    @include mixin.title(var.$tipografia1, 1.2rem, colors.$color2);
+                    font-weight: 500;
+                }
+                &__charge{
+                    @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+                    margin-bottom: 1em;                   
+                }
+                &__icon{
+                    font-size: 1.2rem;
+                    margin-right: 1.1em;
+                    cursor: pointer;
+                    transition: transform .3s ease-in;
+                    @include mixin.little{
+                        margin-right: 2em;
+                    } 
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                    &:nth-child(1){
+                        color: #1877F2;
+                    }
+                    &:nth-child(2){
+                        color: #00ACEE;
+                    }
+                    &:nth-child(3){
+                        color: #FF0000;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .testimonials{
+        margin-bottom: 2em;
+        &__title{
+            @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+            text-transform: uppercase;
+        }
+        &__container{
+            display: grid;
+            grid-template-columns: 50px 1fr 50px;
+            align-items: center;
+            gap: 1em;
+            i{
+                cursor: pointer;
+            }
+        }
+        &__body{
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            align-items: center;
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            opacity: 0;
+            gap: 2em;
+            pointer-events: none;
+            @include mixin.little{
+                grid-template-columns:1fr;
+            }
+            &--show{
+                pointer-events: unset;
+                opacity: 1;
+                transition: opacity 0.8s ease-in;
+            }
+            
+        }
+        &__image{
+            width: 400px;
+            @include mixin.medium{
+                width: 300px;
+            }
+            @include mixin.little{
+                display: none;
+            }
+        }
+        &__title{
+            @include mixin.title(var.$tipografia1, 1.5rem, colors.$color2);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        &__text{
+            @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+            margin-bottom: 1em;
+        }
+        &__name{
+            color: colors.$color1;
+            font-weight: 500;
+            font-family: var.$tipografia1;
+            margin-left: 3em;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@use './variables' as var;
+@mixin medium{
+    @media(max-width:var.$medium){
+        @content;
+    }
+}
+
+@mixin little{
+    @media(max-width:var.$litle){
+        @content;
+    }
+}
+
+@mixin title($tipografia, $size, $color){
+    font-family: $tipografia;
+    font-size: $size;
+    color: $color;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+}
+
+@mixin text($tipografia, $size, $color, $align:left){
+    font-family: $tipografia;
+    font-size: $size;
+    color: $color;
+    text-align: $align;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+@mixin button($background, $color, $border){
+    background-color: $background;
+    color: $color;
+    font-size: 1rem;
+    border: $border;
+    border-radius: 5px;
+    padding: 0.7em 1.7em;
+    font-weight: 700;
+    font-family: var.$tipografia1;
+    cursor: pointer;
+}

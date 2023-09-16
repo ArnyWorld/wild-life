@@ -1,0 +1,92 @@
+@use '../base/global';
+@use '../base/colors' as colors;
+@use '../base/mixins' as mixin;
+@use '../base/variables' as var;
+
+/*Gallery*/
+.main{
+    .galleryPage{
+        display: grid;
+        width: 100%;
+        grid-template-areas: "eagle lion lion frailecillo"
+                             "fox lion lion frailecillo"
+                             "iguana snake frog frog"
+                             "koala koala rabbit wolf"
+                             "koala koala rabbit turtle"
+                             "lizard penguin penguin bear";      
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(6, 250px);
+        
+        @include mixin.little{
+            grid-template-areas: "eagle"
+            "fox"
+            "lion"
+            "frailecillo"
+            "frailecillo"
+            "iguana"
+            "snake"
+            "frog"
+            "koala"
+            "rabbit"
+            "rabbit"
+            "wolf"
+            "turtle"
+            "lizard"
+            "penguin"
+            "bear";      
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(12, 1fr);
+
+        }
+
+        &__data:nth-child(1){
+            grid-area: eagle;
+        }
+        &__data:nth-child(2){
+            grid-area: lion;           
+        }
+        &__data:nth-child(3){
+            grid-area: frailecillo;
+        }
+        &__data:nth-child(4){
+            grid-area: fox;
+        }
+        &__data:nth-child(5){
+            grid-area: iguana;
+        }
+        &__data:nth-child(6){
+            grid-area: snake;
+        }
+        &__data:nth-child(7){
+            grid-area: frog;
+        }
+        &__data:nth-child(8){
+            grid-area: koala;
+        }
+        &__data:nth-child(9){
+            grid-area: rabbit;
+        }
+        &__data:nth-child(10){
+            grid-area: wolf;
+        }
+        &__data:nth-child(11){
+            grid-area: turtle;
+        }
+        &__data:nth-child(12){
+            grid-area: lizard;
+        }
+        &__data:nth-child(13){
+            grid-area: penguin; 
+        }
+        &__data:nth-child(14){
+            grid-area: bear;
+        }
+        &__image{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+    }
+}

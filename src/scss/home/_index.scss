@@ -1,0 +1,548 @@
+@use '../base/global';
+@use '../base/colors' as colors;
+@use '../base/mixins' as mixin;
+@use '../base/variables' as var;
+
+/****Home Page****/
+.mainHome{
+    .mainHeader{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 6em;
+        @include mixin.little{
+            margin-bottom: 3em;
+        } 
+    
+        &__description{
+            @include mixin.text(var.$tipografia2, 1.1rem, colors.$color5, center);
+        }
+        &__title{
+            @include mixin.title(var.$tipografia1, 1.5rem, colors.$color2);
+            @include mixin.medium{
+                text-align: center;
+            } 
+        
+        }
+        &__text{
+            @include mixin.text(var.$tipografia2, 1rem, colors.$color5, center);
+        }
+    }
+    .enjoy{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5em;
+        position: relative;
+        &::before{
+            content:"";
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to left, colors.$color1, rgba(46,184,114,.5));
+            border-radius: 35% 65% 66% 34% / 30% 30% 70% 70% ;
+            opacity: 0.2;
+        }
+        &::after{
+            content:"";
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to left, colors.$color1, rgba(46,184,114,.5));
+            border-radius: 35% 65% 96% 4% / 30% 70% 30% 70% ;
+            opacity: 0.2;
+        }
+        @include mixin.medium{
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+        &__content{
+            width: 50%;
+            order: 2;
+            @include mixin.medium{
+                width: 100%;
+            }
+        }
+        &__title{
+            @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+        }
+        &__text{
+            @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+            margin-bottom: 1em;
+        }
+        &__detail{
+            margin-bottom: 15px;
+            @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+        }
+        &__icon{
+            color: colors.$color1;
+            margin-right: 10px;
+        }
+        &__image{
+            width: 550px;
+            height: 550px;
+            object-fit: cover;
+            order: 1;
+            border-radius: 25px;
+            transform: rotate(-5deg);
+            @include mixin.medium{
+                width: 400px;
+                height: 400px;
+                margin-bottom: 2.5em;
+            }
+            @include mixin.medium{
+                width: 85%;
+                height: 300px;
+            } 
+        
+        }
+    }
+    .awesome{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 4em;
+        @include mixin.medium{
+            align-items: center;
+        } 
+        &__content{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 2em;
+            @include mixin.medium{
+                flex-direction: column;
+            } 
+            .left{
+                width: 65%;
+                @include mixin.medium{
+                    width: 100%;
+                    margin-bottom: 2em;    
+                }
+                &__title{
+                    @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+                }
+                &__text{
+                    @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+                }
+            }
+            .right{
+                width: 30%;
+                display: flex;
+                justify-content: space-between;
+                @include mixin.little{
+                    width: 100%;
+                } 
+    
+                .details{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    &__title{
+                        @include mixin.text(var.$tipografia2, 1rem, colors.$color5, center);                   
+                    }
+                    &__number{
+                        @include mixin.text(var.$tipografia1, 1.1rem, colors.$color5, center);
+
+                    }
+                }
+            }
+        }
+        &__icons{
+            display: flex;
+            gap: 3em;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            @include mixin.medium{
+                width: 50%;        
+                justify-content: center;
+
+            }
+            @include mixin.little{
+                width: 80%;
+                gap: 2em;
+            } 
+        
+            .icon{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: colors.$color1;
+                position: relative;
+                cursor: pointer;
+                overflow: hidden;
+                &::before{
+                    content: '';
+                    background-color: #343a40;
+                    color: colors.$color3;
+                    font-family: var.$tipografia1;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    transform: scale(0);
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: .7;
+                    transition: all .5s ease;
+                }
+                &:nth-child(1)::before{
+                    content: 'Spiders';
+                }
+                &:nth-child(2)::before{
+                    content: 'Birds';
+                }
+                &:nth-child(3)::before{
+                    content: 'Fishes';
+                }
+                &:nth-child(4)::before{
+                    content: 'Frogs';
+                }
+                &:nth-child(5)::before{
+                    content: 'Horses';
+                }
+
+                &:hover::before{
+                    transform: scale(1);
+                }
+                &__animal{
+                    color: colors.$color3;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+    .ourAnimals{
+        margin-bottom: 2em;
+        &__title{
+            @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+        }
+        .gallery{
+            width: 100%;
+            
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 250px);
+            @include mixin.little{
+                grid-template-columns: repeat(1, 1fr);
+                // grid-template-rows: repeat(8, 200px);
+                grid-auto-flow: row;
+            } 
+            &__data:nth-child(1){
+                display:inline-block;
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+                @include mixin.little{
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 2;
+                }   
+            }
+            &__data:nth-child(2){
+                display:inline-block;
+                grid-column: 2 / 4;
+                grid-row: 1 / 3;
+                @include mixin.little{
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3;
+                }
+            }
+            &__data:nth-child(3){
+                display:inline-block;
+                grid-column: 4 / 5;
+                grid-row: 1 / 3;
+                @include mixin.little{
+                    grid-column: 1 / 2;
+                    grid-row: 3 / 5;
+                }
+            }
+            &__data:nth-child(4){
+                display:inline-block;
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                @include mixin.little{
+                    grid-column: 1 / 2;
+                    grid-row: 5 / 6;
+                }
+            }
+            &__data:nth-child(5){
+                display:inline-block;
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                @include mixin.little{
+                    grid-column: 1 / 2;
+                    grid-row: 6 / 7;
+                }
+            }
+            &__data:nth-child(6){
+                display:inline-block;
+                grid-column: 2 / 3;
+                grid-row: 3 / 4;
+                @include mixin.little{
+                    grid-column: 1 / 2;
+                    grid-row: 7 / 8;
+                }
+            }
+            &__data:nth-child(7){
+                display:inline-block;
+                grid-column: 3 / 5;
+                grid-row: 3 / 4;
+                @include mixin.little{
+                    grid-column: 1 / 2;
+                    grid-row: 8 / 9;
+                }
+            }
+
+            &__image{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+    }
+    .services{
+        margin-bottom: 2em;
+        position: relative;
+        &::after{
+            content:"";
+            position: absolute;
+            bottom: -10%;
+            right: -10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to left, colors.$color1, rgba(46,184,114,.5));
+            border-radius: 35% 65% 0% 100% / 30% 36% 64% 70%  ;
+            opacity: 0.2;
+            @include mixin.little{
+                bottom: -4%;
+            }
+        }
+        &__title{
+            @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+        }
+        .cards{
+            display: flex;
+            gap: 2em;
+            flex-wrap: wrap;
+            &__card{
+                width: 23%;
+                justify-content: space-between;
+    
+                @include mixin.medium{
+                    width: 47%;
+                }
+                @include mixin.little{
+                    width: 100%;
+                }     
+            }
+            &__icon{
+                color: colors.$color1;
+                font-size: 2rem;
+                margin-bottom: 0.5em;
+            }
+            &__title{
+                @include mixin.title(var.$tipografia1, 1.1rem, colors.$color2);
+                margin-bottom: 0.5em;
+            }
+            &__text{
+                @include mixin.text(var.$tipografia2, 1rem, colors.$color5, justify);              
+            }
+        }
+    }
+    .parallax{
+        margin-bottom: 2em;
+        padding: 4em 0;
+        background: {
+            image:linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../image/rabbit_medium.jpg");
+            size:cover;
+            attachment: fixed;
+            position: center;
+        };
+        .application{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include mixin.little{
+                flex-direction: column;
+            }
+            .download{
+                width: 30%;
+                @include mixin.medium{
+                    width: 40%;
+                } 
+                @include mixin.little{
+                    width: 100%
+                }
+                &__title{
+                    @include mixin.title(var.$tipografia1, 2.5rem, colors.$color3);
+                    text-transform: uppercase;
+                    margin-bottom: 0.5em;    
+                }
+                &__text{
+                    @include mixin.text(var.$tipografia2, 1rem, colors.$color3, left);
+                    @include mixin.little{
+                        margin-bottom: 1.5em;
+                    }
+                }
+            }
+            .mobile{
+                width: 55%;
+                background-color: colors.$color1;
+                display: flex;
+                align-items: center;
+                padding: 1.3em;
+                gap: 2em;
+                @include mixin.little{
+                    width: 100%
+                }
+                &__icon{
+                    font-size: 4rem;
+                    color: colors.$color3;
+                    @include mixin.medium{
+                        display: none;
+                    } 
+                
+                }
+                &__title{
+                    @include mixin.title(var.$tipografia1, 1.3rem, colors.$color3);
+                }
+                &__text{
+                    @include mixin.text(var.$tipografia2, 1rem, colors.$color3, justify);                   
+                }
+            }
+        }
+    }
+    .testimonials{
+        margin-bottom: 2em;
+        position: relative;
+        &::before{
+            content:"";
+            position: absolute;
+            top: -8%;
+            left: -10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to left, colors.$color1, rgba(46,184,114,.5));
+            border-radius: 65% 35% 100% 0% / 19% 70% 30% 81%;
+            opacity: 0.2;
+            @include mixin.little{
+                bottom: -4%;
+            }
+        }
+        &__title{
+            @include mixin.title(var.$tipografia1, 2.5rem, colors.$color2);
+            text-transform: uppercase;
+        }
+        &__container{
+            display: grid;
+            grid-template-columns: 50px 1fr 50px;
+            align-items: center;
+            gap: 1em;
+            i{
+                cursor: pointer;
+                text-align: center;
+            }
+        }
+        &__body{
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            align-items: center;
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            opacity: 0;
+            gap: 2em;
+            pointer-events: none;
+            @include mixin.little{
+                grid-template-columns:1fr;
+            }
+            &--show{
+                pointer-events: unset;
+                opacity: 1;
+                transition: opacity 0.8s ease-in;
+            }   
+        }
+        &__image{
+            width: 400px;
+            @include mixin.medium{
+                width: 300px;
+            }
+            @include mixin.little{
+                display: none;
+            }
+        
+        }
+        &__title{
+            @include mixin.title(var.$tipografia1, 1.5rem, colors.$color2);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        &__text{
+            @include mixin.text(var.$tipografia2, 1rem, colors.$color5, left);
+            margin-bottom: 1em;
+        }
+        &__name{
+            color: colors.$color1;
+            font-weight: 500;
+            font-family: var.$tipografia1;
+            margin-left: 3em;
+        }
+    }
+    .newsletter{
+        padding: 6em 0;
+        background: {
+            image:linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../image/gary-bendig.jpg");
+            size:cover;
+            position: center;
+        }
+        @include mixin.little{
+            padding: 3em 0;
+        }
+        &__content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__title{
+            @include mixin.title(var.$tipografia1, 1.5rem, colors.$color3);            
+            margin-bottom: 0.8em;
+        }
+        &__form{
+            display: flex;
+            flex-wrap: wrap;
+            @include mixin.little{
+                width: 100%;
+                flex-direction: column;
+            }
+        }
+        &__email{
+            padding: 14px;
+            width: 350px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 1em;
+            @include mixin.little{
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 1em;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+        &__submit{
+            @include mixin.button(colors.$color1, colors.$color3, none);           
+            font-weight: 500;
+        }
+    }
+}
