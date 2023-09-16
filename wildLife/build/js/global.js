@@ -1,2 +1,0 @@
-let barNav=document.querySelector(".navigation__movil"),goTop=document.querySelector(".goTop"),menu=document.querySelector(".navigation__links");function cargarListener(){barNav.addEventListener("click",showMenu),goTop.addEventListener("click",topFunction),window.addEventListener("scroll",()=>{const o=window.scrollY;goTop.style.display=o>200?"flex":"none"})}function showMenu(){menu.classList.toggle("navigation__links--show")}function topFunction(){window.scrollTo({top:0,behavior:"smooth"})}cargarListener();
-//# sourceMappingURL=global.js.map
